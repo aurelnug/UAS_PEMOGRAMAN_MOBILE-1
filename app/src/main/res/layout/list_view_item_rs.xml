@@ -8,7 +8,7 @@
             type="com.example.uas_pemograman_mobile.network.RumahSakit" />
         <variable
             name="clickListener"
-            type="com.example.uas_pemograman_mobile.ui.RumahSakit_covid19.RumahSakitListener" />
+            type="com.example.uas_pemograman_mobile.ui.rumah_sakit_covid19.RumahSakitListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:onClick="@{() -> clickListener.onClick(rs)}"
+        android:onClick="@{() -> clickListener.onClickRs(rs)}"
         app:cardElevation="4dp"
         app:cardCornerRadius="4dp">
 
@@ -26,10 +26,10 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
-            android:padding="8dp"
+            android:padding="30dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="18sp"
-            android:text="@{rs.nama}"
+            android:textSize="14sp"
+            android:text="@{rs.name}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Nama:" />

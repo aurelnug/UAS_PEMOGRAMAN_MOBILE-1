@@ -1,4 +1,4 @@
-package com.example.uas_pemograman_mobile.ui.Inews
+package com.example.uas_pemograman_mobile.ui.inews
 
 import android.os.Bundle
 import android.view.LayoutInflater

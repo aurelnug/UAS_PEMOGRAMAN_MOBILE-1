@@ -7,15 +7,15 @@
             name="inews"
             type="com.example.uas_pemograman_mobile.network.InewsItem" />
         <variable
-            name="clicklistener"
-            type="com.example.uas_pemograman_mobile.ui.Inews.InewsListener" />
+            name="clicklistenerInews"
+            type="com.example.uas_pemograman_mobile.ui.inews.InewsListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> clicklistener.onClick(inews)}"
+        android:onClick="@{() -> clicklistenerInews.onClick(inews)}"
         android:layout_margin="8dp"
         app:cardElevation="8dp"
         app:cardCornerRadius="8dp">
@@ -40,7 +40,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="monospace"
                 android:padding="5dp"
                 android:paddingTop="5dp"
                 android:text="@{inews.title}"

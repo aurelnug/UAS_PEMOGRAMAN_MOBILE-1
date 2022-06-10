@@ -1,17 +1,17 @@
 package com.example.uas_pemograman_mobile
 
-import android.view.View
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.uas_pemograman_mobile.network.InewsItem
+import com.example.uas_pemograman_mobile.network.DataCovid19
 import com.example.uas_pemograman_mobile.network.RumahSakit
-import com.example.uas_pemograman_mobile.network.UpdateDataItem
-import com.example.uas_pemograman_mobile.ui.Inews.InewsListAdapter
-import com.example.uas_pemograman_mobile.ui.RumahSakit_covid19.RumahSakitListAdapter
-import com.example.uas_pemograman_mobile.ui.update_covid19.UpdateDataListAdapter
+import com.example.uas_pemograman_mobile.network.InewsItem
+import com.example.uas_pemograman_mobile.ui.inews.InewsListAdapter
+import com.example.uas_pemograman_mobile.ui.rumah_sakit_covid19.RumahSakitListAdapter
+import com.example.uas_pemograman_mobile.ui.update_covid19.DataKematianListAdapter
+
 
 @BindingAdapter("listDataInews")
 fun bindRecyclerViewInews(recyclerView: RecyclerView, data: List<InewsItem>?) {
@@ -26,8 +26,8 @@ fun bindRecyclerViewRumahSakit(recyclerView: RecyclerView, data: List<RumahSakit
 }
 
 @BindingAdapter("listDataUpdateData")
-fun bindRecylerViewUpdate(recyclerView: RecyclerView, data: List<UpdateDataItem>?) {
-    val adapter = recyclerView.adapter as UpdateDataListAdapter
+fun bindRecylerViewUpdate(recyclerView: RecyclerView, data: List<DataCovid19>?) {
+    val adapter = recyclerView.adapter as DataKematianListAdapter
     adapter.submitList(data)
 }
 

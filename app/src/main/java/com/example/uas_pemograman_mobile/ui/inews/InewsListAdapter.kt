@@ -1,9 +1,9 @@
-package com.example.uas_pemograman_mobile.ui.Inews
+package com.example.uas_pemograman_mobile.ui.inews
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uas_pemograman_mobile.databinding.ListViewItemInewsBinding
 import com.example.uas_pemograman_mobile.network.InewsItem
@@ -11,15 +11,15 @@ import com.example.uas_pemograman_mobile.network.InewsItem
 class InewsListAdapter (val clickListener: InewsListener) :
     ListAdapter<InewsItem, InewsListAdapter.InewsViewHolder> (DiffCallback) {
 
-        class InewsViewHolder(
-            var binding: ListViewItemInewsBinding
-        ) : RecyclerView.ViewHolder(binding.root) {
-            fun bind(clickListener: InewsListener, inews: InewsItem) {
-                binding.inews = inews
-                binding.clicklistener = clickListener
-                binding.executePendingBindings()
-            }
+    class InewsViewHolder(
+        var binding: ListViewItemInewsBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(clickListener: InewsListener, inews: InewsItem) {
+            binding.inews = inews
+            binding.clicklistenerInews = clickListener
+            binding.executePendingBindings()
         }
+    }
     companion object DiffCallback: DiffUtil.ItemCallback<InewsItem>() {
         override fun areItemsTheSame(oldItem: InewsItem, newItem: InewsItem): Boolean {
             return oldItem.title == newItem.title

@@ -4,11 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="update"
-            type="com.example.uas_pemograman_mobile.network.UpdateDataItem" />
+            name="data"
+            type="com.example.uas_pemograman_mobile.network.DataCovid19" />
         <variable
             name="clickListener"
-            type="com.example.uas_pemograman_mobile.ui.update_covid19.UpdateDataListener" />
+            type="com.example.uas_pemograman_mobile.ui.update_covid19.DataKematianListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:onClick="@{() -> clickListener.onClick(update)}"
+        android:onClick="@{() -> clickListener.onClickData(data)}"
         app:cardElevation="4dp"
         app:cardCornerRadius="4dp">
 
@@ -28,11 +28,11 @@
             android:maxLines="1"
             android:padding="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="18sp"
-            android:text="@{update.key}"
+            android:textSize="22sp"
+            android:text="@{data.countryRegion}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Nama:" />
+            tools:text="Negara:" />
 
     </com.google.android.material.card.MaterialCardView>
 </layout>

@@ -1,4 +1,4 @@
-package com.example.uas_pemograman_mobile.ui.Inews
+package com.example.uas_pemograman_mobile.ui.inews
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,7 +21,7 @@ class InewsListFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentInewsListBinding.inflate(inflater)
-        viewModelInews.getInews()
+        viewModelInews.getInewsData()
         binding.lifecycleOwner = this
         binding.viewModel = viewModelInews
         binding.recyclerView.adapter = InewsListAdapter(InewsListener { inews ->

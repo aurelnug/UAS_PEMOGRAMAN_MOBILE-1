@@ -1,4 +1,4 @@
-package com.example.uas_pemograman_mobile.ui.RumahSakit_covid19
+package com.example.uas_pemograman_mobile.ui.rumah_sakit_covid19
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uas_pemograman_mobile.databinding.ListViewItemRsBinding
 import com.example.uas_pemograman_mobile.network.RumahSakit
+
 
 class RumahSakitListAdapter ( val clickListener: RumahSakitListener) :
     ListAdapter<RumahSakit, RumahSakitListAdapter.RumahSakitViewHolder>(DiffCallback) {
@@ -23,16 +24,14 @@ class RumahSakitListAdapter ( val clickListener: RumahSakitListener) :
 
     companion object DiffCallback: DiffUtil.ItemCallback<RumahSakit>() {
         override fun areItemsTheSame(oldItem: RumahSakit, newItem: RumahSakit): Boolean {
-            return oldItem.nama == newItem.nama
+            return oldItem.name == newItem.name
         }
 
         override fun areContentsTheSame(oldItem: RumahSakit, newItem: RumahSakit): Boolean {
-            return oldItem.kode_rs == newItem.kode_rs
-                    && oldItem.tempat_tidur == newItem.tempat_tidur
-                    && oldItem.telepon == newItem.telepon
-                    && oldItem.alamat == newItem.alamat
-                    && oldItem.tipe == newItem.tipe
-                    && oldItem.wilayah == newItem.wilayah
+            return oldItem.address == newItem.address
+                    && oldItem.region == newItem.region
+                    && oldItem.phone == newItem.phone
+                    && oldItem.province == newItem.province
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RumahSakitViewHolder {
@@ -42,11 +41,11 @@ class RumahSakitListAdapter ( val clickListener: RumahSakitListener) :
         )
     }
     override fun onBindViewHolder(holder: RumahSakitViewHolder, position: Int) {
-        val morty = getItem(position)
-        holder.bind(clickListener, morty)
+        val rs = getItem(position)
+        holder.bind(clickListener, rs)
     }
 }
 
 class RumahSakitListener(val clickListener: (rs: RumahSakit) -> Unit) {
-    fun onClick(rs: RumahSakit) = clickListener(rs)
+    fun onClickRs(rs: RumahSakit) = clickListener(rs)
 }
