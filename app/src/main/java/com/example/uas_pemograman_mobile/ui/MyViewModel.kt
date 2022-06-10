@@ -25,13 +25,13 @@ class MyViewModel: ViewModel() {
     private val _RumahSakit = MutableLiveData<RumahSakit>()
     val RumahSakit: LiveData<RumahSakit> = _RumahSakit
 
-    private val _updateDatas = MutableLiveData<List<UpdateDataItem>?>()
-    val updateDatas: LiveData<List<UpdateDataItem>?> = _updateDatas
+    private val _DataCovids = MutableLiveData<List<DataCovid19>>()
+    val DataCovids: LiveData<List<DataCovid19>> = _DataCovids
 
-    private  val _updateData = MutableLiveData<UpdateDataItem>()
-    val updateData: LiveData<UpdateDataItem> = _updateData
+    private  val _DataCovid = MutableLiveData<DataCovid19>()
+    val DataCovid: LiveData<DataCovid19> = _DataCovid
 
-    fun getInews() {
+    fun getInewsData() {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {
@@ -44,7 +44,7 @@ class MyViewModel: ViewModel() {
         }
     }
 
-    fun getRumahSakit() {
+    fun getRumahSakitData() {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {
@@ -58,14 +58,14 @@ class MyViewModel: ViewModel() {
         }
     }
 
-    fun getUpdateData() {
+    fun getUpdateData2() {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {
-                _updateDatas.value = UpdateDataApi.retrofitServiceApi.getUpdateData().list_data
+                _DataCovids.value = DataCovid19Api.retrofitServiceApi.getDataCovid19Data()
                 _status.value = ApiStatus.DONE
             } catch (e: Exception) {
-                _updateDatas.value = listOf()
+                _DataCovids.value = listOf()
                 _status.value = ApiStatus.ERROR
             }
         }
@@ -78,8 +78,8 @@ class MyViewModel: ViewModel() {
         _RumahSakit.value = rs
     }
 
-    fun onUpdateDataClicked(update: UpdateDataItem) {
-        _updateData.value = update
+    fun onUpdateDataClicked(data: DataCovid19) {
+        _DataCovid.value = data
     }
 }
 

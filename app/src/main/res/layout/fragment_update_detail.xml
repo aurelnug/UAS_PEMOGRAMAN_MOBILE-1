@@ -6,10 +6,10 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.uas_pemograman_mobile.ui.update_covid19.UpdateDataViewModel" />
+            type="com.example.uas_pemograman_mobile.ui.MyViewModel" />
         <variable
             name="image"
-            type="com.example.uas_pemograman_mobile.network.UpdateData" />
+            type="com.example.uas_pemograman_mobile.network.DataCovid19" />
     </data>
 
     <ScrollView
@@ -21,64 +21,84 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/key"
+                android:id="@+id/label_negara"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="@{ viewModel.UpdateData.key}"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="20dp"
+                android:text="Negara : "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Key"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/jumlah_kasus"
+                android:id="@+id/negara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:padding="8dp"
+                android:text="@{ viewModel.DataCovid.countryRegion}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="20dp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="@id/label_negara"
+                app:layout_constraintTop_toTopOf="@id/label_negara"
+                tools:text="Negara" />
+
+
+            <TextView
+                android:id="@+id/label_konfirmasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="@{ viewModel.UpdateData.jumlah_kasus}"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="20dp"
-                app:layout_constraintStart_toStartOf="@+id/key"
-                app:layout_constraintTop_toBottomOf="@+id/key"
-                tools:text="Jumlah Kasus Covid19"/>
+                android:text="Terkonfirmasi: "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@id/negara"
+                app:layout_constraintTop_toBottomOf="@id/negara" />
 
             <TextView
-                android:id="@+id/jumlah_sembuh"
+                android:id="@+id/konfirmasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:padding="8dp"
+                android:text="@{viewModel.DataCovid.confirmed.toString() + ` orang`}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="20dp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="@+id/negara"
+                app:layout_constraintTop_toBottomOf="@+id/negara"
+                tools:text="Terkonfirmasi" />
+
+            <TextView
+                android:id="@+id/label_meninggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="@{ viewModel.UpdateData.jumlah_sembuh}"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="20dp"
-                app:layout_constraintStart_toStartOf="@+id/jumlah_kasus"
-                app:layout_constraintTop_toBottomOf="@+id/jumlah_kasus"
-                tools:text="Jumlah Sembuh Covid19"/>
+                android:text="Meninggal :"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/konfirmasi" />
 
             <TextView
-                android:id="@+id/jumlah_meninggal"
+                android:id="@+id/kematian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="@{ viewModel.UpdateData.jumlah_meninggal}"
+                android:text="@{viewModel.DataCovid.deaths.toString() + ` orang`}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="20dp"
-                app:layout_constraintStart_toStartOf="@+id/jumlah_sembuh"
-                app:layout_constraintTop_toBottomOf="@+id/jumlah_sembuh"
-                tools:text="Kode Rumah Sakit"/>
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="@+id/label_meninggal"
+                app:layout_constraintTop_toBottomOf="@+id/label_meninggal"
+                tools:text="Meninggal" />
 
-            <TextView
-                android:id="@+id/jumlah_dirawat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@{ viewModel.UpdateData.jumlah_dirawat}"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="20dp"
-                app:layout_constraintStart_toStartOf="@+id/jumlah_meninggal"
-                app:layout_constraintTop_toBottomOf="@+id/jumlah_meninggal"
-                tools:text="Tipe Rumah Sakit"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

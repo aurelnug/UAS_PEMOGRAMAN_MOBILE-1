@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://newsapi.org/v2/top-headlines"
+private const val BASE_URL = "https://newsapi.org/v2/top-headlines/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())

@@ -7,15 +7,13 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.uas_pemograman_mobile.R
 import com.example.uas_pemograman_mobile.databinding.FragmentUpdateListBinding
-import com.example.uas_pemograman_mobile.ui.RumahSakit_covid19.RumahSakitListAdapter
-import com.example.uas_pemograman_mobile.ui.RumahSakit_covid19.RumahSakitListener
+import com.example.uas_pemograman_mobile.ui.MyViewModel
 
-class UpdateDataListFragment: Fragment() {
-    private val viewModelUpdate: UpdateDataViewModel by activityViewModels()
+class DataKematianListFragment: Fragment() {
+    private val viewModelUpdate: MyViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,15 +21,15 @@ class UpdateDataListFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentUpdateListBinding.inflate(inflater)
-        viewModelUpdate.getUpdateData()
+        viewModelUpdate.getUpdateData2()
         binding.lifecycleOwner = this
         binding.viewModel = viewModelUpdate
-        binding.recyclerView.adapter = UpdateDataListAdapter(UpdateDataListener { update ->
-            viewModelUpdate.onUpdateDataClicked(update)
+        binding.recyclerView.adapter = DataKematianListAdapter(DataKematianListener { dataCovid ->
+            viewModelUpdate.onUpdateDataClicked(dataCovid)
             findNavController()
                 .navigate(R.id.action_nav_updateListFragment_to_updateDetailFragment)
         })
-        (activity as AppCompatActivity).supportActionBar?.title = "Update Data Covid 19"
+        (activity as AppCompatActivity).supportActionBar?.title = "Daftar Angka Kematian Covid19"
 
         return binding.root
     }

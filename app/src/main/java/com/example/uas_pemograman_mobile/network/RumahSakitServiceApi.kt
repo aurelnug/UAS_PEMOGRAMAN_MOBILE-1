@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://data.covid19.go.id/public/api"
+private const val BASE_URL = "https://dekontaminasi.com/api/id/covid19/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -18,7 +18,7 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface RumahSakitServiceApi {
-    @GET("/rs.json")
+    @GET("hospitals")
     suspend fun getRumahSakit() : List<RumahSakit>
 }
 
