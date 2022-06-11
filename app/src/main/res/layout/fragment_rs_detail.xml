@@ -80,32 +80,6 @@
                 app:layout_constraintStart_toStartOf="@+id/phone"
                 app:layout_constraintTop_toBottomOf="@+id/phone"
                 tools:text="Provinsi"/>
-
-<!--            <TextView-->
-<!--                android:id="@+id/tlp"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="8dp"-->
-<!--                android:text="@{ viewModel.RumahSakit.telepon}"-->
-<!--                android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
-<!--                android:textSize="20dp"-->
-<!--                app:layout_constraintStart_toStartOf="@+id/tipe"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tipe"-->
-<!--                tools:text="Nomor Telepon Rumah Sakit"/>-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tempat_tidur"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="8dp"-->
-<!--                android:text="@{ viewModel.RumahSakit.tempat_tidur}"-->
-<!--                android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
-<!--                android:textSize="20dp"-->
-<!--                app:layout_constraintStart_toStartOf="@+id/tlp"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tlp"-->
-<!--                tools:text="Tempat Tidur di Rumah Sakit"/>-->
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
